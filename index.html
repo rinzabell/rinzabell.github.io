@@ -28,7 +28,8 @@ body::before {
 .page { padding: 42px 20px 44px; }
 
 .links { width: 100%; max-width: 540px; margin: 0 auto; }
-.link-card { width: 100%; margin: 0 auto 150px; }
+/* 【変更58】ボタン削除ぶん（約60px）だけ箱間の幅を詰める：150px → 90px */
+.link-card { width: 100%; margin: 0 auto 90px; }
 .links .last-card { margin-bottom: 0; }
 
 .card-square {
@@ -93,30 +94,9 @@ body::before {
   opacity: .5;
 }
 
-.site-preview {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  opacity: .5;
-  pointer-events: none;
-  background: transparent;
-}
-
 .guild-card .card-title { flex: 2.7 1 0; }
 
-.guild-image {
-  flex: 4.3 1 0;
-  min-height: 0;
-  display: block;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  object-fit: cover;
-  opacity: .5;
-  margin: 0;
-}
-
+/* 【変更58】残るボタンは2つだけ：Festa の Learn more と Creation の Top */
 .learn-more {
   display: inline-block;
   margin-top: 18px;
@@ -132,7 +112,6 @@ body::before {
   transition: opacity .2s, transform .2s;
 }
 .learn-more:hover { opacity: .9; transform: translateY(-2px); }
-.guild-card .learn-more { margin-top: 22px; }
 
 .social-links {
   display: flex;
@@ -173,7 +152,8 @@ body::before {
 
 @media (max-width: 600px) {
   .page { padding: 34px 18px 36px; }
-  .link-card { margin-bottom: 130px; }
+  /* 【変更58】モバイルも詰める：130px → 70px */
+  .link-card { margin-bottom: 70px; }
   .links .last-card { margin-bottom: 0; }
   .card-title {
     padding: 11px 14px;
@@ -193,7 +173,20 @@ body::before {
 <main class="page">
   <section class="links" aria-label="DDF links">
 
-    <!-- 1番目：DDF -->
+    <!-- 1番目：Claire Rinzabell（ボタン削除） -->
+    <article class="link-card">
+      <div class="card-square">
+        <h2 class="card-title header-title">
+          <span class="header-main">Claire Rinzabell</span>
+          <span class="header-sub">Your SI Influencer</span>
+        </h2>
+        <div class="card-image-zone">
+          <img class="zone-image" src="https://pbs.twimg.com/media/HVvlDTzacAANe4A.jpg" alt="Claire Rinzabell">
+        </div>
+      </div>
+    </article>
+
+    <!-- 2番目：DDF（Purpose ボタン削除） -->
     <header class="link-card">
       <div class="card-square">
         <h1 class="card-title header-title">
@@ -205,10 +198,9 @@ body::before {
           <img class="zone-image" src="https://pbs.twimg.com/media/HVv5vzoa0AAKfTA.jpg" alt="DDF">
         </div>
       </div>
-      <a class="learn-more" href="#">Purpose</a>
     </header>
 
-    <!-- 2番目：Siesta -->
+    <!-- 3番目：Siesta（ボタン削除） -->
     <article class="link-card">
       <div class="card-square">
         <h2 class="card-title header-title">
@@ -216,10 +208,9 @@ body::before {
         </h2>
         <div class="card-image-zone" aria-hidden="true"></div>
       </div>
-      <a class="learn-more" href="#">Learn more</a>
     </article>
 
-    <!-- 3番目：Amigo（画像を白く＝余白に） -->
+    <!-- 4番目：Amigo（ボタン削除） -->
     <article class="link-card guild-card">
       <div class="card-square">
         <h2 class="card-title header-title">
@@ -228,10 +219,9 @@ body::before {
         </h2>
         <div class="card-image-zone" aria-hidden="true"></div>
       </div>
-      <a class="learn-more" href="https://x.com" target="_blank" rel="noopener noreferrer">Learn more</a>
     </article>
 
-    <!-- 4番目：Festa（Xの画像を新しいものに差し替え） -->
+    <!-- 5番目：Festa（Learn more は残す） -->
     <article class="link-card">
       <div class="card-square">
         <h2 class="card-title header-title">
@@ -245,21 +235,7 @@ body::before {
       <a class="learn-more" href="https://x.com/claire_rinzabel/" target="_blank" rel="noopener noreferrer">Learn more</a>
     </article>
 
-    <!-- 5番目：Claire Rinzabell（object-position: center top で画像の上を基準に表示） -->
-    <article class="link-card">
-      <div class="card-square">
-        <h2 class="card-title header-title">
-          <span class="header-main">Claire Rinzabell</span>
-          <span class="header-sub">Your SI Influencer</span>
-        </h2>
-        <div class="card-image-zone">
-          <img class="zone-image" src="https://pbs.twimg.com/media/HVvlDTzacAANe4A.jpg" alt="Claire Rinzabell">
-        </div>
-      </div>
-      <a class="learn-more" href="https://rinzabell.github.io" target="_blank" rel="noopener noreferrer">Learn more</a>
-    </article>
-
-    <!-- 6番目：DDF Members Club（Ring the Bell Guildのフラッグ画像） -->
+    <!-- 6番目：DDF Members Club（ボタン削除） -->
     <article class="link-card">
       <div class="card-square">
         <h2 class="card-title header-title">
@@ -269,10 +245,9 @@ body::before {
           <img class="zone-image" src="https://pbs.twimg.com/media/HVksIqnbAAAp0W9.jpg" alt="DDF Members Club">
         </div>
       </div>
-      <a class="learn-more" href="#">Learn more</a>
     </article>
 
-    <!-- 7番目：GitHub（最後の箱・サイズ変更後の画像） -->
+    <!-- 7番目：Creation（ボタンは Top に変更＝ページ先頭へ戻る） -->
     <article class="link-card last-card">
       <div class="card-square">
         <h2 class="card-title header-title">
@@ -283,7 +258,7 @@ body::before {
           <img class="zone-image" src="https://pbs.twimg.com/media/HVvusI9bYAAKzVY.jpg" alt="Creation on GitHub">
         </div>
       </div>
-      <a class="learn-more" href="#">Learn more</a>
+      <a class="learn-more" href="#">Top</a>
     </article>
 
     <nav class="social-links" aria-label="Social media">

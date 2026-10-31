@@ -113,12 +113,13 @@ body::before {
 }
 .learn-more:hover { opacity: .9; transform: translateY(-2px); }
 
+/* 【変更61】TopリンクとSNSリンクの間：100px */
 .social-links {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 54px;
-  margin: 120px auto 0;
+  margin: 100px auto 0;
 }
 .social-link {
   display: flex;
@@ -145,9 +146,10 @@ body::before {
   stroke-width: 2;
 }
 
+/* 【変更62】一番下の空箱を50px小さく：540px → 490px */
 .end-spacer {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 490px;
 }
 
 @media (max-width: 600px) {
@@ -163,9 +165,12 @@ body::before {
   }
   .header-main { font-size: 40px; }
   .header-sub { font-size: 21px; }
-  .social-links { gap: 38px; margin-top: 90px; }
+  /* 【変更61】モバイルも100px */
+  .social-links { gap: 38px; margin-top: 100px; }
   .social-link { width: 38px; height: 38px; }
   .social-link svg { width: 22px; height: 22px; }
+  /* 【変更62】モバイルの空箱も50px小さく：(画面幅-36px)-50px */
+  .end-spacer { height: calc(100vw - 86px); }
 }
 </style>
 </head>
@@ -200,24 +205,28 @@ body::before {
       </div>
     </header>
 
-    <!-- 3番目：Siesta（ボタン削除） -->
+    <!-- 3番目：Siesta（指定画像を表示） -->
     <article class="link-card">
       <div class="card-square">
         <h2 class="card-title header-title">
           <span class="header-main">Siesta</span>
         </h2>
-        <div class="card-image-zone" aria-hidden="true"></div>
+        <div class="card-image-zone">
+          <img class="zone-image" src="https://pbs.twimg.com/media/HV4ErUEboAAq8bM.jpg" alt="Siesta">
+        </div>
       </div>
     </article>
 
-    <!-- 4番目：Amigo（ボタン削除） -->
+    <!-- 4番目：Amigo（指定画像を表示） -->
     <article class="link-card guild-card">
       <div class="card-square">
         <h2 class="card-title header-title">
           <span class="header-main">Amigo</span>
           <span class="header-sub">on Discord</span>
         </h2>
-        <div class="card-image-zone" aria-hidden="true"></div>
+        <div class="card-image-zone">
+          <img class="zone-image" src="https://pbs.twimg.com/media/HV0Nv_fbUAAfefi.jpg" alt="Amigo on Discord">
+        </div>
       </div>
     </article>
 
@@ -235,20 +244,8 @@ body::before {
       <a class="learn-more" href="https://x.com/claire_rinzabel/" target="_blank" rel="noopener noreferrer">Learn more</a>
     </article>
 
-    <!-- 6番目：DDF Members Club（ボタン削除） -->
+    <!-- 6番目：Creation（GitHub・ボタンなし） -->
     <article class="link-card">
-      <div class="card-square">
-        <h2 class="card-title header-title">
-          <span class="header-main">DDF Members Club</span>
-        </h2>
-        <div class="card-image-zone">
-          <img class="zone-image" src="https://pbs.twimg.com/media/HVksIqnbAAAp0W9.jpg" alt="DDF Members Club">
-        </div>
-      </div>
-    </article>
-
-    <!-- 7番目：Creation（ボタンは Top に変更＝ページ先頭へ戻る） -->
-    <article class="link-card last-card">
       <div class="card-square">
         <h2 class="card-title header-title">
           <span class="header-main">Creation</span>
@@ -256,6 +253,18 @@ body::before {
         </h2>
         <div class="card-image-zone">
           <img class="zone-image" src="https://pbs.twimg.com/media/HVvusI9bYAAKzVY.jpg" alt="Creation on GitHub">
+        </div>
+      </div>
+    </article>
+
+    <!-- 7番目：DDF Members Club（Ring the Bell Guild・Topリンク付き＝最後の箱） -->
+    <article class="link-card last-card">
+      <div class="card-square">
+        <h2 class="card-title header-title">
+          <span class="header-main">DDF Members Club</span>
+        </h2>
+        <div class="card-image-zone">
+          <img class="zone-image" src="https://pbs.twimg.com/media/HVksIqnbAAAp0W9.jpg" alt="DDF Members Club">
         </div>
       </div>
       <a class="learn-more" href="#">Top</a>
